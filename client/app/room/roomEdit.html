@@ -1,0 +1,35 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">{{room.name}}</h1>
+            
+            <ul class="list-group">
+                <li ng-repeat="question in questions | filter: {'room':  room._id}:true" class="list-group-item">
+                    <strong>{{question.name}}<strong>                    
+                    <a ng-click="deleteQuestion(question)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
+                </li>
+            </ul>
+
+            <form>
+                <div class="input-group">
+                    <input class="form-control" ng-model="questionTitle" placeholder="Question title" />
+                    <br/>
+                    <input class="form-control" ng-model="questionAnswer1" placeholder="Question Answer #1" />
+                    <input class="form-control" ng-model="questionAnswer2" placeholder="Question Answer #2" />
+                    <input class="form-control" ng-model="questionAnswer3" placeholder="Question Answer #3" />
+                    <input class="form-control" ng-model="questionAnswer4" placeholder="Question Answer #4" />
+                    <br>
+                    <br>
+                    <input class="form-control" type="number" ng-model="correctQuestion" placeholder="Correct Question" min="1" max="4" />
+                    <button class="btn btn-success" ng-click="addQuestion()">Post question</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="container">
+        <p>&copy; QuizApp</p>
+    </div>
+</footer>

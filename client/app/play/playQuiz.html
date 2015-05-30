@@ -1,0 +1,17 @@
+<div class="col-md-12">
+
+
+<div ng-repeat="question in questions | filter: {'room':  routeParam}:true">
+
+	<h2>{{question.name}}</h2>
+
+	<ul>
+		<li ng-click="chooseAnswer(question._id, 1)">{{question.answer1}}</li>
+		<li ng-click="chooseAnswer(question._id, 2)">{{question.answer2}}</li>
+		<li ng-click="chooseAnswer(question._id, 3)">{{question.answer3}}</li>
+		<li ng-click="chooseAnswer(question._id, 4)">{{question.answer4}}</li>
+	</ul>
+    <button class="btn btn-success">Submit</button>
+</div>
+
+</div>
